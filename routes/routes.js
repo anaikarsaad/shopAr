@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/post/:prodname', async (req, res) => {
     
     const reviewData = new Model({
-        prodName:req.body.prodName,
+       
         name:req.body.name,
         review:req.body.review
     })
@@ -41,7 +41,7 @@ router.post('/post', async (req, res) => {
 })
 
 
-//Get all Method
+// Get all Method
 router.get('/getAll', async (req, res) => {
     try {
         const data = await Model.find();
@@ -55,7 +55,7 @@ router.get('/getAll', async (req, res) => {
 //Get by ID Method
 router.get('/getOne/:id', async (req, res) => {
     try {
-        const data = await Model.find({prodName:req.params.id});
+        const data = await Model.findById(req.params.id);
         res.json(data)
     }
     catch (error) {
